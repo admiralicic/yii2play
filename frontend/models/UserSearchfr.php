@@ -47,9 +47,11 @@ class UserSearchfr extends User
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'sort' => ['attributes' => ['email']],
             'pagination' => [
                 'pageSize' => 2
-            ]
+            ],
+
         ]);
 
         $this->load($params);

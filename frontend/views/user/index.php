@@ -14,6 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-index">
 
+
     <h1><?= Html::encode($this->title) ?></h1>
     <?php //echo $this->render('_search', ['model' => $searchModel]); ?>
 
@@ -28,8 +29,19 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
 //            'username',
-            'email:email',
+            [
+                'attribute' => 'email',
+                'format' => 'email',
+                'enableSorting' => true
+            ],
             'status',
+            [
+                'attribute' => 'status',
+                'format' => 'raw',
+                'value' => function($model, $index, $widget) {
+                    return Html::checkbox('status', $model->status, ['value' => $index, 'disabled' => false]);
+                }
+            ],
             [
                 'attribute' => 'username',
                 'format' => 'raw',
@@ -54,6 +66,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
-        'layout' => '{pager}{items}{summary}{pager}'
+        'layout' => '{summary}{items}{pager}'
     ]); ?>
+
 </div>

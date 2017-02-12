@@ -119,6 +119,14 @@ a.desc:after {
     outline: none;
 }
 
-.badge {
-    background: red;
-}
+/*.badge-container {*/
+    /*position: relative;*/
+    /*margin-right: 20px;*/
+/*}*/
+
+/*.badge-container .badge {*/
+    /*position: absolute;*/
+    /*top: 8px;*/
+    /*background-color: #e99002;*/
+/*}*/
+

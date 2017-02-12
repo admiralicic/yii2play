@@ -46,8 +46,9 @@ AppAsset::register($this);
         ['label' => 'About', 'url' => ['/site/about']],
         ['label' => 'Contact', 'url' => ['/site/contact']],
         [
-            'label' => 'Mesages' . Html::tag('span', '111', ['class' => 'badge']),
-
+            'label' => 'Mesages' . Html::tag('span', '<strong>'. Yii::$app->user->identity->getMessages() .'</strong>', ['class' => 'badge']),
+            'url' => ['/site/index'],
+            //'options' => ['class' => 'badge-container']
         ],
 
     ];
@@ -65,11 +66,12 @@ AppAsset::register($this);
             . '</li>';
     }
     echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
+        'options' => ['class' => 'navbar-nav navbar-right nav-pills'],
         'items' => $menuItems,
         'encodeLabels' => false,
     ]);
     NavBar::end();
+
     ?>
 
     <div class="container">
